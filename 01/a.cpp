@@ -2,9 +2,6 @@
 
 using namespace std; // standard navnerom
 
-// NB: Sjekk at det ikke er noen advarsler i øvinga, slett build-mappen i prosjektet
-// Pakk prosjektmappen i tar.gz format "solution1.tar.gz". Lever denne fila
-
 int main() {
     const int length = 5;
     double temperature;
