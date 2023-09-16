@@ -11,3 +11,4 @@ add_executable(commodity
         commodity/commodity.cpp
         commodity/commodity.hpp
 )
+add_executable(string_practice string/string_practice.cpp)
