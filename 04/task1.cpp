@@ -24,4 +24,11 @@ int main() {
 
     numbers.emplace(numbers.begin()+1, 999);
     cout << "front() after emplace: " << numbers.front() << endl;
+
+    auto it = find(numbers.begin(), numbers.end(), 9);
+    if (it != numbers.end()) cout << "number found after " << distance(numbers.begin(), it) << " steps" << endl;
+    else cout << "number not found in vector" << endl;
+
+
+    return 0;
 }
