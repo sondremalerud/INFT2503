@@ -29,10 +29,6 @@ public:
             button.set_sensitive(!entry.get_text().empty() && !entry2.get_text().empty());
         });
 
-        entry.signal_activate().connect([this]() {
-            label.set_text("Entry activated");
-        });
-
         button.signal_clicked().connect([this]() {
             label.set_text("Names combined: " + entry.get_text() + " " + entry2.get_text());
         });
