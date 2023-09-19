@@ -49,7 +49,7 @@ int main() {
     }
 
     // h)
-    int index = 0;
+    string::size_type index = 0;
     int count = 0;
     while ((index = sentence.find("er", index)) != std::string::npos) {
         count++;
