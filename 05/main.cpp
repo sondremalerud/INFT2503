@@ -23,8 +23,18 @@ public:
         return "black";
     }
 
+    std::string short_color_string() const {
+      if (color == Color::WHITE)
+          return "w";
+      else
+          return "b";
+    }
+
     /// Return color and type of the chess piece
     virtual std::string type() const = 0;
+
+    /// Return short version of color and type
+    virtual std::string short_type() const = 0;
 
     /// Returns true if the given chess piece move is valid
     virtual bool valid_move(int from_x, int from_y, int to_x, int to_y) const = 0;
@@ -35,6 +45,7 @@ public:
       explicit King(Color color) : Piece(color) {}
 
       std::string type() const override {return this->color_string() + " king";}
+      std::string short_type() const override {return this->short_color_string() + "KI";}
 
       bool valid_move(int from_x, int from_y, int to_x, int to_y) const override {
             return std::abs(from_x - to_x) < 2 && std::abs(from_y - to_y) < 2;
@@ -46,6 +57,7 @@ public:
       explicit Knight(Color color) : Piece(color) {}
 
       std::string type() const override {return this->color_string() + " knight";}
+      std::string short_type() const override {return this->short_color_string() + "KN";}
 
       bool valid_move(int from_x, int from_y, int to_x, int to_y) const override {
           return (std::abs(from_x - to_x) == 2 && std::abs(from_y - to_y) == 1) || (std::abs(from_x - to_x) == 1 && std::abs(from_y - to_y) == 2);
@@ -87,6 +99,17 @@ public:
           }
         }
         piece_to = std::move(piece_from);
+
+        for (int i = 0; i < squares.size(); i++)
+        {
+          for (int j = 0; j < squares[i].size(); j++)
+          {
+              if (!squares[i][j]) cout << "[   ]";
+              else cout << "[" << squares[i][j]->short_type() << "]";
+          }
+          cout << endl;
+        }
+
         return true;
       } else {
         cout << "can not move " << piece_from->type() << " from " << from << " to " << to << endl;
