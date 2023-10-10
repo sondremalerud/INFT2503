@@ -13,6 +13,10 @@ public:
         arr = vector<int>();
     }
 
+    Set(const Set &other) {
+        arr = other.arr;
+    }
+
     Set operator+(const Set &other);
     bool operator+=(const int &other);
     Set &operator=(const Set &other);
