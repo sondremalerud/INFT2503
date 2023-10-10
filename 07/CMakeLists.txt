@@ -4,3 +4,4 @@ project(07)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -Wall -Wextra")
 
 add_executable(task1 fraction/fraction.hpp fraction/fraction.cpp fraction/main.cpp)
+add_executable(task2 set/set.hpp set/set.cpp set/main.cpp)
